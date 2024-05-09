@@ -146,20 +146,9 @@ $(document).ready(function () {
 
     volume.click(function () { toggleMute(); });
 
-    expandButton.click(function () {
-
-        $(this).toggleClass('active');
-
-        if ($(this).hasClass('active')) {
-            $('#controls').addClass('is-visible');
-            fullScreen();
-        } else {
-            $('#controls').removeClass('is-visible');
-            exitTheFullScreen();
-        }
-    });
-
     volumeIntesity.click(function () { changeVolume(); });
+
+    expandButton.click(function () { fullScreen(); });
 
     overlayButton.click(function () { playVid(); });
 
