@@ -310,18 +310,6 @@ $(document).ready(function () {
 
     }
 
-    function exitTheFullScreen() {
-        if (document.webkitExitFullscreen()) {
-            document.webkitExitFullscreen();
-        } else if (document.mozCancelFullScreen()) {
-            document.mozCancelFullScreen();
-        } else if (document.msExitFullscreen()) {
-            document.msExitFullscreen();
-        } else {
-            video.dblclick(function () { fullScreen(); });
-        }
-    }
-
     function resizeVid() {
         if (container.width() < 600) {
             container.addClass('small');
@@ -362,15 +350,6 @@ $(document).ready(function () {
     }
 
 });
-
-
-function showSingleDiv(selector) {
-    const prevBlockEl = document.querySelector('.our__blocks.our__blocks_active'),
-        currBlockEl = document.querySelector(selector);
-    if (!currBlockEl || prevBlockEl === currBlockEl) return;
-    prevBlockEl && prevBlockEl.classList.remove('our__blocks_active');
-    currBlockEl.classList.add('our__blocks_active');
-};
 
 function openSponsor(evt, sponsorName) {
     var i, our__tabcontent, tablink;
@@ -414,6 +393,13 @@ function openForum(evt, forumName) {
     evt.currentTarget.className += "speaker__tabcontent_active";
 };
 
+function showSingleDiv(selector) {
+    const prevBlockEl = document.querySelector('.our__blocks.our__blocks_active'),
+        currBlockEl = document.querySelector(selector);
+    if (!currBlockEl || prevBlockEl === currBlockEl) return;
+    prevBlockEl && prevBlockEl.classList.remove('our__blocks_active');
+    currBlockEl.classList.add('our__blocks_active');
+};
 
 $('[data-modal=order]').on('click', function () {
     $('.overlay-modal, #consultation').fadeIn('slow');
